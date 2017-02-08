@@ -1,5 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user){FactoryGirl.build(:user)}
+  subject { user }
+  context "Responds to attributes" do
+    it { is_expected.to respond_to( :email ) }
+    it { is_expected.to respond_to( :password ) }
+    it { is_expected.to respond_to( :password_confirmation ) }
+  end
+
+  it { is_expected.to be_valid }
 end
